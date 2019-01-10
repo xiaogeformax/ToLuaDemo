@@ -1118,10 +1118,8 @@ namespace LuaInterface
 
         public static int toluaL_exception(IntPtr L, Exception e)
         {
-           /* LuaException.luaStack = new LuaException(e.Message, e, 2);
-            return tolua_error(L, e.Message);*/
-            //todo lua exception
-            return 0;
+            LuaException.luaStack = new LuaException(e.Message, e, 2);
+            return tolua_error(L, e.Message);
         }
 
         public static int toluaL_exception(IntPtr L, Exception e, object o, string msg)
@@ -1131,8 +1129,8 @@ namespace LuaInterface
                 msg = e.Message;
             }
 
-            //todo luaException
-           /* LuaException.luaStack = new LuaException(msg, e, 2);*/
+          
+            LuaException.luaStack = new LuaException(msg, e, 2);
            
             return tolua_error(L, msg);
 
