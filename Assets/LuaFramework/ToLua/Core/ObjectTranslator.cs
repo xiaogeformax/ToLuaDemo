@@ -35,8 +35,7 @@ namespace LuaInterface
         }
             public bool LogGC { get; set; }
             public readonly Dictionary<object, int> objectsBackMap = new Dictionary<object, int>(new CompareObject());
-            //todo luaObjectPool
-            //public readonly LuaObjectPool objects = new LuaObjectPool();
+            public readonly LuaObjectPool objects = new LuaObjectPool();
             private List<DelayGC> gcList = new List<DelayGC>();
 #if !MULTI_STATE
             private static ObjectTranslator _translator = null;
